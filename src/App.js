@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <p>Rea sdfsdfct Templ sdfsdfate</p>
+      <p>React Template</p>
     </div>
   );
 }
