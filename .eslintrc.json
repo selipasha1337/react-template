@@ -3,6 +3,7 @@
     "browser": true,
     "es2021": true
   },
+  "ignorePatterns": ["node_modules", "dist", "build"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -13,6 +14,7 @@
     "prettier"
   ],
   "overrides": [],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "requireConfigFile": false,
     "babelOptions": {
@@ -21,11 +23,28 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": 0,
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/order": [
+      2,
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always"
+      }
+    ]
   },
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     }
   }
 }
